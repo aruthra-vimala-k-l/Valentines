@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Will You Be My Valentine?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    /* ---------- FONTS ---------- */
+    @font-face {
+      font-family: 'Lovely';
+      src: url('fonts/Lovely.ttf') format('truetype');
+    }
+
+    @font-face {
+      font-family: 'StarsAndLove';
+      src: url('fonts/StarsAndLove.ttf') format('truetype');
+    }
+
+    /* ---------- RESET ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    body.fade-out {
+      opacity: 0;
+    }
+
+    /* ---------- BACKGROUND ---------- */
+    .background {
+      position: fixed;
+      inset: 0;
+      background-image: url("bg1.jpg"); /* 🔁 Canva background */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* ---------- STAGE ---------- */
+    .stage {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ---------- CARD ---------- */
+    .card {
+      background: white;
+      border: 6px solid black;
+      border-radius: 30px;
+      padding: 45px 55px 55px;
+      text-align: center;
+      max-width: 520px;
+      width: 90%;
+      position: relative;
+    }
+
+    /* ---------- QUESTION ---------- */
+    .question {
+      font-family: 'Lovely', cursive;
+      font-size: 2.3rem;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    /* ---------- TEDDY ---------- */
+    .teddy {
+      position: absolute;
+      width: 140px;
+      left: -80px;
+      top: 30px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ---------- BOUQUET ---------- */
+    .bouquet {
+      width: 120px;
+      margin: 20px auto 30px;
+      display: block;
+
+      opacity: 0;
+      transform: scale(0.6);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .bouquet.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* ---------- BUTTONS ---------- */
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    button {
+      font-family: 'StarsAndLove', cursive;
+      font-size: 1.6rem;
+      padding: 14px 42px;
+      border-radius: 16px;
+      border: 3px solid black;
+      background: white;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 0 black;
+    }
+
+    button:active {
+      transform: scale(0.95);
+      box-shadow: none;
+    }
+
+    /* ---------- MOBILE ---------- */
+    @media (max-width: 600px) {
+      .question {
+        font-size: 1.9rem;
+      }
+
+      .teddy {
+        width: 110px;
+        left: -50px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background"></div>
+
+  <div class="stage">
+    <div class="card">
+
+      <!-- Teddy -->
+      <img src="teddy.png" alt="cute teddy" class="teddy">
+
+      <!-- Question -->
+      <div class="question">
+        Will you be my Valentine?
+      </div>
+
+      <!-- Bouquet (delayed) -->
+      <img src="flowers.png" alt="bouquet of roses" class="bouquet">
+
+      <!-- Buttons -->
+      <div class="buttons">
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Fade in + bouquet delay
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+
+      setTimeout(() => {
+        const bouquet = document.querySelector(".bouquet");
+        if (bouquet) bouquet.classList.add("show");
+      }, 1000);
+    });
+
+    function navigateTo(page) {
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = page;
+      }, 600);
+    }
+
+    document.getElementById("yesBtn").addEventListener("click", () => {
+      navigateTo("final.html");
+    });
+
+    document.getElementById("noBtn").addEventListener("click", () => {
+      navigateTo("mistake.html");
+    });
+  </script>
+</body>
+</html>
