@@ -14,7 +14,6 @@
         }
 
         body {
-            /* Background Image */
             background-image: url('bg/bg9.jpg'); 
             background-size: cover;
             background-position: center;
@@ -42,6 +41,7 @@
             padding: 45px 20px;
             text-align: center;
             position: relative;
+            /* Z-Index 10: Sits below the images */
             z-index: 10;
             width: 100%;
             margin: 0 20px;
@@ -54,7 +54,6 @@
             font-weight: normal;
             line-height: 1.2;
             color: black;
-            /* Push text slightly right to avoid the giant teddy */
             margin-left: 40px; 
         }
 
@@ -62,6 +61,9 @@
             display: flex;
             justify-content: center;
             gap: 30px;
+            /* CRITICAL: Ensures buttons are above the white box background */
+            position: relative;
+            z-index: 15; 
         }
 
         .btn {
@@ -82,39 +84,37 @@
             transform: translate(-2px, -2px);
         }
 
+        /* --- DECORATION IMAGES --- */
         .decor-img {
             position: absolute;
-            z-index: 20; 
+            z-index: 20; /* Visually sits on top */
             filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2)); 
+            
+            /* --- THE MAGIC FIX --- */
+            /* This allows clicks to pass THROUGH the image to the buttons below */
+            pointer-events: none; 
         }
 
-        /* --- TEDDY UPSIZE --- */
+        /* --- TEDDY --- */
         .teddy {
-            /* SIZE: Increased significantly */
-            width: 340px; 
-            
-            /* POSITION: Centered vertically */
+            width: 320px; 
             top: 50%;
             transform: translateY(-50%);
-            
-            /* LEFT: Pulled further out to handle the new size */
             left: -130px; 
         }
 
-        /* --- FLOWERS UPSIZE --- */
+        /* --- FLOWERS --- */
         .bouquet {
-            /* SIZE: Increased significantly */
-            width: 340px;
+            width: 240px;
             
-            bottom: -80px;
-            right: -70px;
+            /* ADJUSTED POSITION: Brought closer to the box */
+            bottom: -60px;  /* Moved up slightly */
+            right: -65px;   /* Moved left slightly to touch the corner */
             
             opacity: 0;
-            /* Start rotation */
             transform: scale(0) rotate(-45deg); 
         }
 
-        /* Animation */
         @keyframes popUp {
             0% { opacity: 0; transform: scale(0) rotate(-45deg); }
             70% { transform: scale(1.1) rotate(10deg); }
@@ -126,12 +126,10 @@
             animation-delay: 0.5s;
         }
 
-        /* --- MOBILE TWEAKS --- */
         @media (max-width: 650px) {
             .white-box { margin: 0 40px; padding: 40px 10px; }
             h1 { font-size: 1.8rem; margin-left: 0; }
             
-            /* Resize for mobile so they don't cover everything */
             .teddy { 
                 width: 160px; 
                 left: -35px; 
