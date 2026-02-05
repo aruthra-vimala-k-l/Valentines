@@ -14,7 +14,7 @@
         }
 
         body {
-            /* Confirmed path from your GitHub screenshot */
+            /* PATH CONFIRMED: bg folder -> bg9.jpg */
             background-image: url('bg/bg9.jpg'); 
             background-size: cover;
             background-position: center;
@@ -29,8 +29,7 @@
         .card-wrapper {
             position: relative;
             width: 100%;
-            /* 1. LAYOUT FIX: Restricting width to make it look compact like the design */
-            max-width: 500px; 
+            max-width: 550px; /* Slightly wider to balance the large bear */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -39,9 +38,8 @@
         .white-box {
             background: white;
             border: 3px solid black;
-            border-radius: 30px;
-            /* 2. PADDING FIX: Less vertical padding to match the compact look */
-            padding: 40px 20px; 
+            border-radius: 35px;
+            padding: 45px 20px;
             text-align: center;
             position: relative;
             z-index: 10;
@@ -51,12 +49,14 @@
         }
 
         h1 {
-            /* 3. FONT FIX: Smaller as requested (was 3.5rem) */
-            font-size: 2.8rem; 
+            /* FONT SIZE FIX: Reduced to 2.5rem to prevent overlap with the bear */
+            font-size: 2.5rem; 
             margin-bottom: 30px;
             font-weight: normal;
             line-height: 1.2;
             color: black;
+            /* Added small left margin to push text slightly away from the bear */
+            margin-left: 20px; 
         }
 
         .button-group {
@@ -70,7 +70,7 @@
             border: 2px solid black;
             border-radius: 10px;
             padding: 5px 35px;
-            font-size: 1.8rem; /* Slightly smaller button text to match */
+            font-size: 1.6rem; /* Slightly smaller for elegance */
             font-family: 'Great Vibes', cursive;
             cursor: pointer;
             transition: transform 0.1s, box-shadow 0.1s;
@@ -87,25 +87,28 @@
         .decor-img {
             position: absolute;
             z-index: 20; 
-            /* Soft shadow for depth */
             filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.15)); 
         }
 
-        /* 4. TEDDY FIX: Much larger and positioned further left */
+        /* --- TEDDY FIX --- */
         .teddy {
-            width: 260px; /* Increased from 120px to match reference */
+            /* SIZE: Increased to 260px */
+            width: 260px; 
+            
+            /* VERTICAL: Centered perfectly */
             top: 50%;
-            left: -90px;  /* Pushed further out */
             transform: translateY(-50%);
+            
+            /* HORIZONTAL: Pushed further left (-110px). 
+               This moves the bear roughly 50% outside the box, 
+               matching your reference image exactly. */
+            left: -110px; 
         }
 
-        /* 5. BOUQUET FIX: Positioning adjusted */
         .bouquet {
-            width: 180px;
+            width: 170px;
             bottom: -50px;
             right: -70px;
-            
-            /* Initial state for pop animation */
             opacity: 0;
             transform: scale(0) rotate(-45deg); 
         }
@@ -123,15 +126,18 @@
 
         /* --- MOBILE TWEAKS --- */
         @media (max-width: 650px) {
-            .white-box { margin: 0 40px; }
-            h1 { font-size: 2rem; }
+            .white-box { margin: 0 40px; padding: 40px 10px; }
+            h1 { font-size: 1.8rem; margin-left: 0; }
+            
+            /* On mobile, we shrink the bear and move it to the top-left corner
+               so it doesn't block the screen */
             .teddy { 
-                width: 160px; 
-                left: -40px; 
-                top: -60px; /* Moves to top-left corner on mobile */
+                width: 140px; 
+                left: -30px; 
+                top: -50px; 
                 transform: none; 
             }
-            .bouquet { width: 140px; right: -30px; bottom: -50px; }
+            .bouquet { width: 120px; right: -20px; bottom: -40px; }
         }
     </style>
 </head>
