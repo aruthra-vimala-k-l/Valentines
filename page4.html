@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pretty Please?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Consistent Background */
+            background-image: url('bg/bg9.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; 
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .card-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .white-box {
+            background: white;
+            border: 3px solid black;
+            border-radius: 35px;
+            /* Padding adjusted to fit the face nicely */
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            margin: 0 20px;
+            box-shadow: 15px 15px 0px black; 
+        }
+
+        /* --- PLEADING FACE IMAGE --- */
+        .pleading-face {
+            /* Size adjusted to look cute and prominent like the design */
+            width: 200px; 
+            display: block;
+            margin: 0 auto 10px auto; /* Centers the image */
+        }
+
+        h1 {
+            font-size: 3rem; 
+            margin-bottom: 30px;
+            font-weight: normal;
+            line-height: 1.2;
+            color: black;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            position: relative;
+            z-index: 15; 
+        }
+
+        .btn {
+            background: white;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 5px 35px;
+            font-size: 1.8rem; 
+            font-family: 'Great Vibes', cursive;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.1s;
+            color: black;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #ffe4e1;
+            box-shadow: 4px 4px 0px black; 
+            transform: translate(-2px, -2px);
+        }
+
+        /* --- MOBILE TWEAKS --- */
+        @media (max-width: 650px) {
+            .white-box { margin: 0 40px; padding: 40px 10px; }
+            h1 { font-size: 2.5rem; }
+            .pleading-face { width: 150px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-wrapper">
+        <div class="white-box">
+            <img src="image/cute.png" alt="Pleading Face" class="pleading-face">
+
+            <h1>Pretty Pleaseeee!</h1>
+            
+            <div class="button-group">
+                <button class="btn" onclick="goToYes()">Yes</button>
+                <button class="btn" onclick="goToNo()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goToYes() {
+            // Success!
+            window.location.href = "final.html"; 
+        }
+
+        function goToNo() {
+            // Since this is the "Pretty Please" stage, 
+            // clicking No usually restarts the loop or goes to the very start.
+            window.location.href = "page5.html"; 
+        }
+    </script>
+</body>
+</html>
