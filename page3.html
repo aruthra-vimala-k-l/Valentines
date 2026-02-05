@@ -85,18 +85,21 @@
         /* --- QUESTION MARK IMAGE --- */
         .question-mark {
             position: absolute;
-            width: 120px; /* Adjust based on your file size */
             
-            /* TOP RIGHT POSITIONING */
-            top: -50px;
-            right: -30px;
+            /* SIZE: Making it BIG to match the design */
+            width: 200px; 
+            
+            /* POSITION: Pushing it way out of the box to the top-right */
+            top: -100px;
+            right: -60px;
             
             z-index: 20;
-            pointer-events: none; /* Allows clicking through if it overlaps anything */
+            /* Rotate slightly for that "doodle" look */
+            transform: rotate(15deg); 
             filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.1));
             
-            /* Slight tilt for style */
-            transform: rotate(15deg); 
+            /* CRITICAL: Ensures you can click buttons if image overlaps them */
+            pointer-events: none; 
         }
 
         /* --- MOBILE TWEAKS --- */
