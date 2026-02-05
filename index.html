@@ -14,7 +14,7 @@
         }
 
         body {
-            /* PATH CONFIRMED: bg folder -> bg9.jpg */
+            /* Background Image */
             background-image: url('bg/bg9.jpg'); 
             background-size: cover;
             background-position: center;
@@ -29,7 +29,7 @@
         .card-wrapper {
             position: relative;
             width: 100%;
-            max-width: 550px; /* Slightly wider to balance the large bear */
+            max-width: 550px; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -49,14 +49,13 @@
         }
 
         h1 {
-            /* FONT SIZE FIX: Reduced to 2.5rem to prevent overlap with the bear */
             font-size: 2.5rem; 
             margin-bottom: 30px;
             font-weight: normal;
             line-height: 1.2;
             color: black;
-            /* Added small left margin to push text slightly away from the bear */
-            margin-left: 20px; 
+            /* Push text slightly right to avoid the giant teddy */
+            margin-left: 40px; 
         }
 
         .button-group {
@@ -70,7 +69,7 @@
             border: 2px solid black;
             border-radius: 10px;
             padding: 5px 35px;
-            font-size: 1.6rem; /* Slightly smaller for elegance */
+            font-size: 1.6rem; 
             font-family: 'Great Vibes', cursive;
             cursor: pointer;
             transition: transform 0.1s, box-shadow 0.1s;
@@ -83,36 +82,39 @@
             transform: translate(-2px, -2px);
         }
 
-        /* --- DECORATION IMAGES --- */
         .decor-img {
             position: absolute;
             z-index: 20; 
-            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.15)); 
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2)); 
         }
 
-        /* --- TEDDY FIX --- */
+        /* --- TEDDY UPSIZE --- */
         .teddy {
-            /* SIZE: Increased to 260px */
-            width: 260px; 
+            /* SIZE: Increased significantly */
+            width: 320px; 
             
-            /* VERTICAL: Centered perfectly */
+            /* POSITION: Centered vertically */
             top: 50%;
             transform: translateY(-50%);
             
-            /* HORIZONTAL: Pushed further left (-110px). 
-               This moves the bear roughly 50% outside the box, 
-               matching your reference image exactly. */
-            left: -110px; 
+            /* LEFT: Pulled further out to handle the new size */
+            left: -130px; 
         }
 
+        /* --- FLOWERS UPSIZE --- */
         .bouquet {
-            width: 170px;
-            bottom: -50px;
-            right: -70px;
+            /* SIZE: Increased significantly */
+            width: 240px;
+            
+            bottom: -70px;
+            right: -90px;
+            
             opacity: 0;
+            /* Start rotation */
             transform: scale(0) rotate(-45deg); 
         }
 
+        /* Animation */
         @keyframes popUp {
             0% { opacity: 0; transform: scale(0) rotate(-45deg); }
             70% { transform: scale(1.1) rotate(10deg); }
@@ -129,15 +131,14 @@
             .white-box { margin: 0 40px; padding: 40px 10px; }
             h1 { font-size: 1.8rem; margin-left: 0; }
             
-            /* On mobile, we shrink the bear and move it to the top-left corner
-               so it doesn't block the screen */
+            /* Resize for mobile so they don't cover everything */
             .teddy { 
-                width: 140px; 
-                left: -30px; 
-                top: -50px; 
+                width: 160px; 
+                left: -35px; 
+                top: -60px; 
                 transform: none; 
             }
-            .bouquet { width: 120px; right: -20px; bottom: -40px; }
+            .bouquet { width: 150px; right: -30px; bottom: -50px; }
         }
     </style>
 </head>
