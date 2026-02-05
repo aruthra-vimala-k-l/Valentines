@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oh no!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Using the same background for consistency */
+            background-image: url('bg/bg9.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; 
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .card-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .white-box {
+            background: white;
+            border: 3px solid black;
+            border-radius: 35px;
+            /* Added top padding to make room for the eyes */
+            padding: 30px 20px 40px 20px; 
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            margin: 0 20px;
+            box-shadow: 15px 15px 0px black; 
+        }
+
+        /* --- THE CLOSED EYES IMAGE --- */
+        .eyes-img {
+            /* 720px is too big, so we scale it down to fit the box beautifully */
+            width: 180px; 
+            display: block;
+            margin: 0 auto 10px auto; /* Centers it and adds space below */
+        }
+
+        h1 {
+            font-size: 2.2rem; 
+            margin-bottom: 30px;
+            font-weight: normal;
+            line-height: 1.4;
+            color: black;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .btn {
+            background: white;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 5px 35px;
+            font-size: 1.6rem; 
+            font-family: 'Great Vibes', cursive;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.1s;
+            color: black;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #ffe4e1;
+            box-shadow: 4px 4px 0px black; 
+            transform: translate(-2px, -2px);
+        }
+
+        /* --- MOBILE TWEAKS --- */
+        @media (max-width: 650px) {
+            .white-box { margin: 0 40px; padding: 20px 10px 30px 10px; }
+            h1 { font-size: 1.8rem; }
+            .eyes-img { width: 140px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-wrapper">
+        <div class="white-box">
+            <img src="image/close.png" alt="Closed Eyes" class="eyes-img">
+
+            <h1>Oh! That must be a mistake...<br>Let's try again!!</h1>
+            
+            <div class="button-group">
+                <button class="btn" onclick="retryYes()">Yes</button>
+                
+                <button class="btn" onclick="retryNo()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function retryYes() {
+            // Redirects to your Yes page (Success)
+            window.location.href = "final.html"; 
+        }
+
+        function retryNo() {
+            // Reloads the page or redirects back to the start
+            window.location.href = "page3.html"
+            location.reload(); 
+        }
+    </script>
+</body>
+</html>
