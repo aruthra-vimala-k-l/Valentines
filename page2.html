@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oh no!</title>
+    <title>Oh No!</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     
     <style>
@@ -14,7 +14,7 @@
         }
 
         body {
-            /* Using the same background for consistency */
+            /* Same background as your main page */
             background-image: url('bg/bg9.jpg'); 
             background-size: cover;
             background-position: center;
@@ -29,7 +29,7 @@
         .card-wrapper {
             position: relative;
             width: 100%;
-            max-width: 500px; 
+            max-width: 550px; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -39,44 +39,49 @@
             background: white;
             border: 3px solid black;
             border-radius: 35px;
-            /* Added top padding to make room for the eyes */
+            /* Padding: Top, Right, Bottom, Left */
             padding: 30px 20px 40px 20px; 
             text-align: center;
             position: relative;
             z-index: 10;
             width: 100%;
             margin: 0 20px;
+            /* The classic hard shadow */
             box-shadow: 15px 15px 0px black; 
         }
 
-        /* --- THE CLOSED EYES IMAGE --- */
+        /* --- CLOSED EYES IMAGE SETTINGS --- */
         .eyes-img {
-            /* 720px is too big, so we scale it down to fit the box beautifully */
+            /* We set a fixed width of 180px. 
+               Since your source is 720px, this scales it down 
+               to look crisp and proportional like the design.
+            */
             width: 180px; 
+            height: auto; /* Maintains aspect ratio */
             display: block;
-            margin: 0 auto 10px auto; /* Centers it and adds space below */
+            margin: 0 auto 10px auto; /* Centers it horizontally */
         }
 
         h1 {
             font-size: 2.2rem; 
             margin-bottom: 30px;
             font-weight: normal;
-            line-height: 1.4;
+            line-height: 1.3;
             color: black;
         }
 
         .button-group {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 40px; /* Space between buttons */
         }
 
         .btn {
             background: white;
             border: 2px solid black;
             border-radius: 10px;
-            padding: 5px 35px;
-            font-size: 1.6rem; 
+            padding: 5px 40px;
+            font-size: 1.8rem; 
             font-family: 'Great Vibes', cursive;
             cursor: pointer;
             transition: transform 0.1s, box-shadow 0.1s;
@@ -90,11 +95,12 @@
             transform: translate(-2px, -2px);
         }
 
-        /* --- MOBILE TWEAKS --- */
+        /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 650px) {
-            .white-box { margin: 0 40px; padding: 20px 10px 30px 10px; }
+            .white-box { margin: 0 30px; padding: 30px 15px; }
             h1 { font-size: 1.8rem; }
-            .eyes-img { width: 140px; }
+            .eyes-img { width: 140px; } /* Smaller eyes on mobile */
+            .btn { font-size: 1.5rem; padding: 5px 30px; }
         }
     </style>
 </head>
@@ -116,14 +122,13 @@
 
     <script>
         function retryYes() {
-            // Redirects to your Yes page (Success)
+            // Redirect to success
             window.location.href = "final.html"; 
         }
 
         function retryNo() {
-            // Reloads the page or redirects back to the start
-            window.location.href = "page3.html"
-            location.reload(); 
+            // Redirect back to the start so they have to choose again
+            window.location.href = "page3.html"; 
         }
     </script>
 </body>
