@@ -1,245 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>It's Official!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- RESET --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>It's Official!</title>
 
-        body {
-            /* Background */
-            background-image: url('bg/bg2.jpg'); 
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden; 
-            font-family: 'Great Vibes', cursive;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
-        /* --- MUSIC CONTROL (Top Right) --- */
-        .music-control {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 50px; /* Adjust size */
-            cursor: pointer;
-            z-index: 100;
-            transition: transform 0.2s ease;
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
-        }
-        
-        .music-control:hover {
-            transform: scale(1.1);
-        }
+<style>
 
-        /* --- MAIN CARD --- */
-        .card-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 500px; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .white-box {
-            background: white;
-            border: 3px solid black;
-            border-radius: 35px;
-            /* Padding: Top is 90px to clear space for the Teddy */
-            padding: 90px 20px 50px 20px;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            margin: 0 20px;
-            box-shadow: 15px 15px 0px black; 
-        }
+body{
+    height:100vh;
+    overflow:hidden;
+    font-family:'Great Vibes', cursive;
 
-        /* --- 1. TEDDY GIF (Looping) --- */
-        .teddy-gif {
-            width: 260px; 
-            position: absolute;
-            top: -140px;      /* Popping out of the top */
-            left: 50%;        
-            transform: translateX(-50%); 
-            z-index: 20;
-            filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.1));
-        }
+    background:url('bg/bg2.jpg') center/cover no-repeat;
 
-        /* --- 2. TEXT STYLING --- */
-        h1 {
-            font-size: 3.8rem; 
-            margin-bottom: 5px;
-            font-weight: normal;
-            line-height: 1.2;
-            color: black;
-            
-            /* Shadow & Curve Effect */
-            text-shadow: 3px 3px 0px #eee;
-            transform: rotate(-3deg); 
-            display: inline-block; 
-        }
+    position:relative;
+}
 
-        p {
-            font-size: 2rem;
-            color: black;
-            margin-top: 10px;
-            margin-bottom: 30px;
-        }
+/* ================= MUSIC ICON (TOP RIGHT) ================= */
 
-        /* --- 3. DOWNLOAD LINK & ARROW --- */
-        .link-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px; /* Space between arrow and text */
-        }
+.music-control{
+    position:fixed;
+    top:25px;
+    right:25px;
+    width:55px;
+    cursor:pointer;
+    z-index:999;
+    transition:transform .2s ease;
+    filter:drop-shadow(2px 2px 4px rgba(0,0,0,.3));
+}
 
-        .arrow-icon {
-            width: 40px; 
-            transform: rotate(-10deg); /* Tilt arrow slightly */
-            /* Pointing Animation */
-            animation: point-right 1s infinite ease-in-out;
-        }
+.music-control:hover{
+    transform:scale(1.1);
+}
 
-        .download-link {
-            font-size: 1.6rem;
-            color: #d63031; 
-            text-decoration: underline;
-            cursor: pointer;
-            transition: color 0.3s;
-            font-weight: bold;
-        }
+/* ================= MAIN CENTER CONTENT ================= */
 
-        .download-link:hover {
-            color: #ff7675;
-        }
+.center-container{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+}
 
-        /* --- 4. ENVELOPE ICON (Bottom Right) --- */
-        .envelope-container {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 100;
-        }
+/* TEDDY GIF */
+.teddy{
+    width:260px;
+    display:block;
+    margin:auto;
+    filter:drop-shadow(0 5px 8px rgba(0,0,0,.2));
+}
 
-        .envelope-icon {
-            width: 80px; 
-            cursor: pointer;
-            /* Pop & Fade Animation */
-            animation: pulse-pop 2s infinite ease-in-out;
-            transition: transform 0.2s;
-        }
+/* TITLE TEXT */
+.main-text{
+    margin-top:15px;
+    font-size:3.8rem;
+    color:black;
 
-        .envelope-icon:hover {
-            /* Stops animation and scales up on hover */
-            animation: none;
-            transform: scale(1.2);
-        }
+    text-shadow:3px 3px 0 #eee;
+    transform:rotate(-3deg);
+    display:inline-block;
+}
 
-        /* --- KEYFRAME ANIMATIONS --- */
-        
-        /* Arrow moving left/right */
-        @keyframes point-right {
-            0% { transform: translateX(0) rotate(-10deg); }
-            50% { transform: translateX(-8px) rotate(-10deg); }
-            100% { transform: translateX(0) rotate(-10deg); }
-        }
+/* SUB TEXT */
+.sub-text{
+    margin-top:8px;
+    font-size:2rem;
+}
 
-        /* Envelope pulsing */
-        @keyframes pulse-pop {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.15); opacity: 0.8; }
-            100% { transform: scale(1); opacity: 1; }
-        }
+/* ================= DOWNLOAD AREA ================= */
 
-        /* --- MOBILE RESPONSIVENESS --- */
-        @media (max-width: 650px) {
-            .white-box { margin: 0 40px; padding: 80px 10px 40px 10px; }
-            h1 { font-size: 2.8rem; }
-            p { font-size: 1.5rem; }
-            .teddy-gif { width: 180px; top: -100px; } 
-            
-            .music-control { width: 40px; top: 15px; right: 15px; }
-            
-            .envelope-icon { width: 60px; }
-            .envelope-container { bottom: 20px; right: 20px; }
-            
-            .arrow-icon { width: 30px; }
-            .download-link { font-size: 1.3rem; }
-        }
-    </style>
+.download-area{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+}
+
+.arrow{
+    width:40px;
+    animation:arrowMove 1s infinite ease-in-out;
+}
+
+.download-link{
+    font-size:1.6rem;
+    color:#d63031;
+    text-decoration:underline;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.download-link:hover{
+    color:#ff7675;
+}
+
+/* ================= ENVELOPE ICON ================= */
+
+.envelope{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    width:85px;
+    cursor:pointer;
+    animation:envelopePulse 2s infinite ease-in-out;
+    z-index:999;
+}
+
+.envelope:hover{
+    animation:none;
+    transform:scale(1.2);
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes arrowMove{
+    0%{transform:translateX(0) rotate(-10deg);}
+    50%{transform:translateX(-8px) rotate(-10deg);}
+    100%{transform:translateX(0) rotate(-10deg);}
+}
+
+@keyframes envelopePulse{
+    0%{transform:scale(1); opacity:1;}
+    50%{transform:scale(1.15); opacity:.8;}
+    100%{transform:scale(1); opacity:1;}
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:650px){
+
+    .teddy{
+        width:180px;
+    }
+
+    .main-text{
+        font-size:2.6rem;
+    }
+
+    .sub-text{
+        font-size:1.4rem;
+    }
+
+    .arrow{
+        width:30px;
+    }
+
+    .download-link{
+        font-size:1.2rem;
+    }
+
+    .music-control{
+        width:45px;
+    }
+
+    .envelope{
+        width:65px;
+    }
+}
+
+</style>
 </head>
+
 <body>
 
-    <audio id="bg-music" loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
+<!-- AUDIO -->
+<audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-    <img src="image/unmute.png" alt="Music Toggle" class="music-control" id="music-btn" onclick="toggleMusic()">
+<!-- MUSIC BUTTON -->
+<img src="image/mute.png" id="music-btn" class="music-control" onclick="toggleMusic()">
 
-    <div class="card-wrapper">
-        <div class="white-box">
-            
-            <img src="image/teddy.gif" alt="Teddy Bear" class="teddy-gif">
+<!-- CENTER CONTENT -->
+<div class="center-container">
 
-            <h1>Yepppieeeeeee!!</h1>
-            <p>Hehehehe, I knew it! &lt;3</p>
+    <img src="image/teddy.gif" class="teddy">
 
-            <div class="link-container">
-                <img src="image/arrow.png" class="arrow-icon">
-                <a href="confirm.html" class="download-link">Download your confirmation copy</a>
-            </div>
-            
-        </div>
-    </div>
+    <h1 class="main-text">Yepppieeeeeee!!</h1>
+    <div class="sub-text">Hehehehe, I knew it! &lt;3</div>
 
-    <div class="envelope-container">
-        <a href="terms.html">
-            <img src="image/envelope.png" alt="Terms and Conditions" class="envelope-icon">
+    <div class="download-area">
+        <img src="image/arrow.png" class="arrow">
+        <a href="confirm.html" class="download-link">
+            Download your confirmation copy
         </a>
     </div>
 
-    <script>
-        const music = document.getElementById('bg-music');
-        const musicBtn = document.getElementById('music-btn');
-        let isPlaying = false;
+</div>
 
-        function toggleMusic() {
-            if (isPlaying) {
-                music.pause();
-                // Change icon to 'unmute.png' (Sound is OFF)
-                musicBtn.src = "image/unmute.png"; 
-                isPlaying = false;
-            } else {
-                music.play();
-                // Change icon to 'mute.png' (Sound is ON)
-                musicBtn.src = "image/mute.png"; 
-                isPlaying = true;
-            }
-        }
+<!-- ENVELOPE -->
+<a href="terms.html">
+    <img src="image/envelope.png" class="envelope">
+</a>
 
-        // Attempt Auto-Play on Load
-        window.addEventListener('load', () => {
-            music.play().then(() => {
-                isPlaying = true;
-                musicBtn.src = "image/mute.png";
-            }).catch(error => {
-                console.log("Browser blocked auto-play. Click icon to start.");
-            });
-        });
-    </script>
+<script>
+
+const music = document.getElementById("bg-music");
+const musicBtn = document.getElementById("music-btn");
+
+let isPlaying = false;
+
+/*
+LOGIC (As YOU requested):
+
+Audio Playing  → Show UNMUTE icon
+Audio Muted    → Show MUTE icon
+*/
+
+function toggleMusic(){
+
+    if(isPlaying){
+        music.pause();
+        musicBtn.src = "image/mute.png";   // muted → show mute icon
+        isPlaying = false;
+    }else{
+        music.play();
+        musicBtn.src = "image/unmute.png"; // playing → show unmute icon
+        isPlaying = true;
+    }
+}
+
+/* Try autoplay */
+window.addEventListener("load",()=>{
+
+    music.play().then(()=>{
+        isPlaying = true;
+        musicBtn.src = "image/unmute.png";
+    }).catch(()=>{
+        console.log("Autoplay blocked — user interaction needed.");
+        musicBtn.src = "image/mute.png";
+    });
+
+});
+
+</script>
+
 </body>
 </html>
