@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You serious now!!?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Consistent Background */
+            background-image: url('bg/bg2.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; 
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .card-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .white-box {
+            background: white;
+            border: 3px solid black;
+            border-radius: 35px;
+            /* Padding: Top is higher to account for the image */
+            padding: 70px 20px 30px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            margin: 0 20px;
+            box-shadow: 15px 15px 0px black; 
+        }
+
+        /* --- ANGRY IMAGE STYLING --- */
+        .angry-img {
+            width: 280px; /* Big enough to be intimidating */
+            
+            /* CENTERING TRICK */
+            position: absolute;
+            top: -140px;      /* Pulls it way up out of the box */
+            left: 50%;        /* Moves left edge to center */
+            transform: translateX(-50%); /* Centers it perfectly */
+            
+            z-index: 20;
+            filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.1));
+        }
+
+        h1 {
+            font-size: 3.5rem; 
+            margin-bottom: 30px;
+            font-weight: normal;
+            line-height: 1.2;
+            color: black;
+            margin-top: 10px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            position: relative;
+            z-index: 15; 
+        }
+
+        .btn {
+            background: white;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 5px 35px;
+            font-size: 1.8rem; 
+            font-family: 'Great Vibes', cursive;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.1s;
+            color: black;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #ffe4e1;
+            box-shadow: 4px 4px 0px black; 
+            transform: translate(-2px, -2px);
+        }
+
+        /* --- MOBILE TWEAKS --- */
+        @media (max-width: 650px) {
+            .white-box { margin: 0 40px; padding: 60px 10px 40px 10px; }
+            h1 { font-size: 2.8rem; }
+            /* Adjust image size/position for mobile */
+            .angry-img { width: 180px; top: -90px; } 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-wrapper">
+        <div class="white-box">
+            <img src="image/eyes.png" alt="Angry Girl" class="angry-img">
+
+            <h1>You serious now!!?</h1>
+            
+            <div class="button-group">
+                <button class="btn" onclick="goToYes()">Yes</button>
+                <button class="btn" onclick="goToNo()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goToYes() {
+            // Finally they agreed! Go to success page.
+            window.location.href = "final.html"; 
+        }
+
+        function goToNo() {
+            // Since she threatened to slap, clicking 'No' 
+            // restarts the whole loop (punishment!)
+            window.location.href = "page6.html"; 
+        }
+    </script>
+</body>
+</html>
