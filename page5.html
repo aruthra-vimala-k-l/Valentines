@@ -39,8 +39,8 @@
             background: white;
             border: 3px solid black;
             border-radius: 35px;
-            /* Padding: Top is higher to account for the image */
-            padding: 70px 20px 30px 20px;
+            /* PADDING FIX: Balanced padding now that image is on the side */
+            padding: 50px 20px;
             text-align: center;
             position: relative;
             z-index: 10;
@@ -49,15 +49,15 @@
             box-shadow: 15px 15px 0px black; 
         }
 
-        /* --- ANGRY IMAGE STYLING --- */
+        /* --- ANGRY IMAGE STYLING (Mid-Left Fix) --- */
         .angry-img {
-            width: 280px; /* Big enough to be intimidating */
+            width: 280px; 
             
-            /* CENTERING TRICK */
+            /* POSITIONING: Mid-Left */
             position: absolute;
-            top: -140px;      /* Pulls it way up out of the box */
-            left: 50%;        /* Moves left edge to center */
-            transform: translateX(-50%); /* Centers it perfectly */
+            top: 50%;            /* Move down to the middle */
+            transform: translateY(-50%); /* Center vertically perfectly */
+            left: -120px;        /* Pull it outside the box to the left */
             
             z-index: 20;
             filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.1));
@@ -70,6 +70,8 @@
             line-height: 1.2;
             color: black;
             margin-top: 10px;
+            /* Added small margin to push text away from the image on the left */
+            margin-left: 30px; 
         }
 
         .button-group {
@@ -101,10 +103,16 @@
 
         /* --- MOBILE TWEAKS --- */
         @media (max-width: 650px) {
-            .white-box { margin: 0 40px; padding: 60px 10px 40px 10px; }
-            h1 { font-size: 2.8rem; }
-            /* Adjust image size/position for mobile */
-            .angry-img { width: 180px; top: -90px; } 
+            .white-box { margin: 0 40px; padding: 40px 10px; }
+            h1 { font-size: 2.5rem; margin-left: 0; }
+            
+            /* On mobile, move image to top-left corner so it doesn't cover screen */
+            .angry-img { 
+                width: 160px; 
+                left: -30px; 
+                top: -60px; 
+                transform: none; /* Remove the vertical centering on mobile */
+            } 
         }
     </style>
 </head>
@@ -125,13 +133,10 @@
 
     <script>
         function goToYes() {
-            // Finally they agreed! Go to success page.
             window.location.href = "final.html"; 
         }
 
         function goToNo() {
-            // Since she threatened to slap, clicking 'No' 
-            // restarts the whole loop (punishment!)
             window.location.href = "page6.html"; 
         }
     </script>
