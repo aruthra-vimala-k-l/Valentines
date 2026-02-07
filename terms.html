@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Consistent Background */
+            background-image: url('bg/bg10.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif; /* Readable font for the long text */
+        }
+
+        .card-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 600px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .white-box {
+            background: white;
+            border: 3px solid black;
+            border-radius: 35px;
+            /* Padding allows space for the exit button */
+            padding: 20px 30px 40px 30px;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            margin: 0 20px;
+            box-shadow: 15px 15px 0px black; 
+            
+            /* Constrain height so scrolling works */
+            height: 80vh; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- EXIT BUTTON (Top Right) --- */
+        .exit-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 35px; /* Adjust based on your icon size */
+            cursor: pointer;
+            z-index: 20;
+            transition: transform 0.2s;
+        }
+
+        .exit-btn:hover {
+            transform: scale(1.2);
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem; 
+            margin-bottom: 20px;
+            margin-top: 10px;
+            text-align: center;
+            color: black;
+            flex-shrink: 0; /* Prevents header from shrinking */
+        }
+
+        /* --- SCROLLABLE LIST --- */
+        .terms-list {
+            list-style: none;
+            text-align: left;
+            overflow-y: auto; /* Enables scrolling */
+            padding-right: 10px; /* Space for scrollbar */
+            flex-grow: 1; /* Fills remaining space */
+        }
+
+        li {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 15px;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        .bold-text {
+            font-weight: 600;
+            color: black;
+            display: block; /* Puts title on its own line if needed */
+            margin-bottom: 5px;
+        }
+
+        /* --- CUSTOM SCROLLBAR STYLING --- */
+        .terms-list::-webkit-scrollbar {
+            width: 8px;
+        }
+        .terms-list::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            border-radius: 10px;
+        }
+        .terms-list::-webkit-scrollbar-thumb {
+            background: #ccc; 
+            border-radius: 10px;
+        }
+        .terms-list::-webkit-scrollbar-thumb:hover {
+            background: #888; 
+        }
+
+        /* --- MOBILE TWEAKS --- */
+        @media (max-width: 650px) {
+            .white-box { margin: 0 20px; padding: 20px 20px; height: 85vh; }
+            h1 { font-size: 2.5rem; margin-top: 30px; } /* More top margin for mobile so exit button doesn't overlap text */
+            li { font-size: 0.9rem; }
+            .exit-btn { width: 30px; top: 15px; right: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-wrapper">
+        <div class="white-box">
+            
+            <a href="final.html">
+                <img src="image/arrow.png" alt="Close" class="exit-btn">
+            </a>
+
+            <h1>Terms & Conditions</h1>
+            
+            <ul class="terms-list">
+                <li><span class="bold-text">1. The "No Returns" Policy</span> By accepting this Valentine, you agree that this relationship is non-refundable, non-transferable, and valid for a lifetime. There is no exit strategy.</li>
+                
+                <li><span class="bold-text">2. Food Sharing Act</span> The Boyfriend must share his fries, even if the Girlfriend said she "wasn't hungry."</li>
+                
+                <li><span class="bold-text">3. Dispute Resolution</span> In the event of an argument, the Boyfriend admits that the Girlfriend is right. If the Girlfriend is wrong, refer back to the previous sentence.</li>
+                
+                <li><span class="bold-text">4. Attention Quota</span> A minimum of 15 hugs and 50 kisses are required monthly. Failure to comply will result in silent treatment.</li>
+                
+                <li><span class="bold-text">5. Exclusivity</span> You agree to only have eyes for me. No wandering eyes, just me.</li>
+                
+                <li><span class="bold-text">6. Partnership</span> You promise to be my partner in crime, my emergency contact, and my favorite person to annoy for the rest of our lives.</li>
+                
+                <li><span class="bold-text">7. Maintenance</span> Regular dates, surprise flowers (optional but recommended), and "good morning" texts are required to keep this system running smoothly.</li>
+                
+                <li><span class="bold-text">8. Bug Fixes</span> We promise to fix any "bugs" (fights) before going to sleep. Never go to bed angry.</li>
+                
+                <li><span class="bold-text">9. Lifetime Warranty</span> This love comes with a lifetime guarantee. Through happy days, sad days, and lazy days.</li>
+                
+                <li><span class="bold-text">10. Infinite Loop</span> By clicking "Yes", you agree to enter an infinite while(alive) loop of loving me.</li>
+                
+                <li><span class="bold-text">11. Access Rights</span> I have full sudo (admin) access to your heart.</li>
+                
+                <li><span class="bold-text">12. No Break Statements</span> You are not allowed to use break; statements in this relationship.</li>
+                
+                <li><span class="bold-text">13. Deployment</span> You agree to deploy hugs and kisses whenever the server (me) feels down.</li>
+                
+                <li><span class="bold-text">14. Version Control</span> No matter how much we change or upgrade, the core version of "Us" remains the same.</li>
+                
+                <li><span class="bold-text">15. The Photographer Clause</span> You agree to take candid photos of me until I get one good angle for Instagram. No complaining allowed.</li>
+                
+                <li><span class="bold-text">16. Judgment-Free Zone</span> You promise to love me even when I'm hangry, sleepy, or looking like a mess in the morning.</li>
+                
+                <li><span class="bold-text">17. Keep the Spark</span> We agree to never stop dating each other, even when we are old and gray.</li>
+                
+                <li><span class="bold-text">18. Final Clause</span> You promise to be mine, and I promise to be yours. Forever.</li>
+            </ul>
+            
+        </div>
+    </div>
+
+</body>
+</html>
